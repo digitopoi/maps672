@@ -1,2 +1,3 @@
-# maps672
-Modules for New Maps Plus MAP672 course.
+# Hugh Bowman's MAP 672 Modules
+
+I'm learning Javascript and webmapping
