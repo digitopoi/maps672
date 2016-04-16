@@ -7,25 +7,61 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <style>
-        body {
+       body {
             margin: 0;
             padding: 0;
             background: #f5f5f5;
             font-family: sans-serif;
-            color: #3d3d3d;
+            color: #3d3d3d; 
         }
         h1 {
-            font-size: 1.6em;
-            margin-left: 25px;
-        }
+			font-size: 3em;
+			color: #3d3d3d;
+			text-transform: uppercase;
+			padding-bottom: 0px;
+			padding-left: 20px;
+			padding-top: 20px;
+		}
         h2 {
-            font-size: 1.4em;
-            margin-left: 25px;
-        }
+			font-size: 0.8em;
+			padding-bottom: px;
+			padding-left: 25px;
+            text-align: left;
+            max-width: 800px;
+		}
         p {
             font-size: 1em;
             margin: 15px 25px;
             max-width: 800px;
+            text-align:justify;
+        } 
+        a {
+			color: #3e6b93;
+			font-weight: bold;
+			text-decoration: none;
+		}
+        a:hover {
+			text-decoration: underline;
+			background-color: transparent;
+		}
+        img {
+			margin-left: 25px;
+			max-width: 800px;
+			border: 20px;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #3e6b93;
+            margin: 25px;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background: #bf6864;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 25px;
         }
         
     </style>
@@ -35,9 +71,9 @@
 <!-- Structured HTML goes within the body tags -->
     
     <h1>Orpheus the Cartographer</h1>
-    <h2>Here is an aesthetically pleasing (but difficult to read) representation of the world. </h2>
     <p>"To you this tale refers, Who seek to lead your mind Into the upper day; For he who overcome should turn back his gaze Towards the Tartarean cave, Whatever <a href="https://baconipsum.com/">excellence</a> he takes with him He loses when he looks on those below." - <a href="http://www.maicar.com/GML/Orpheus.html">Orpheus's Gaze, Boethius</a></p>
-    <p><a href="https://books.google.com/books/about/A_History_of_Spaces.html?id=BGJTas8fnpYC">Pickles</a> reminds us that while we are cartographers, we are still mere mortals. We may feel like our representations the world (or any part therein) may be "True" - we must be aware of our limitations and biases. </p>
+    <p><a href="https://books.google.com/books/about/A_History_of_Spaces.html?id=BGJTas8fnpYC">Pickles</a> reminds us that while we are cartographers, we are still mere mortals. We may believe our representations of the world (or any part therein) may be "True" - we must be aware of our limitations and biases. While we look down on the world with the aid of our beautifully crafted map utilizing the best scientific techniques at our disposal, we must recognize the imperfections of our methods, both technical and artistic.</p>
+    <h2>Here is an aesthetically pleasing (but low-information) representation of the world: </h2>
     <div id='map'>
         <img src="images/world2.png" alt="world map">
     </div>
@@ -54,7 +90,7 @@
     <div class="circle"></div>
 
     <script>
-        // JavaScript code goes here  
+        document.querySelector('h1').innerHTML = 'web mapping is sweet!';  
         
     </script>
     
