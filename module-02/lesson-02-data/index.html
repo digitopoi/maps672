@@ -5,6 +5,7 @@
     <meta charset=utf-8 />
     <title>MAP672 Module 2 Template</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     <style>
        body {
@@ -14,6 +15,7 @@
             font-family: sans-serif;
             color: #3d3d3d; 
         }
+        /*Styles h1 element to be a larger font, uppercase, and dark gray. Also adjusts padding*/
         h1 {
 			font-size: 3em;
 			color: #3d3d3d;
@@ -22,9 +24,11 @@
 			padding-left: 20px;
 			padding-top: 20px;
 		}
+        /*Styles h2 element to be a smaller font with dark gray text. Adjusts padding to line up with paragraphs and h1. */
         h2 {
 			font-size: 0.8em;
-			padding-bottom: px;
+            color: #3d3d3d
+			padding-bottom: 0px;
 			padding-left: 25px;
             text-align: left;
             max-width: 800px;
@@ -49,12 +53,14 @@
 			max-width: 800px;
 			border: 20px;
         }
+        /* creates a unique id attribute ('box') that is a dark blue circle 200 pixels wide and tall. Inline with other elements with a margin of 25 pixels. */
         #box {
             width: 200px;
             height: 200px;
             background: #3e6b93;
             margin: 25px;
         }
+        /* Creates a class ('circle') that is a dark red circle 100 pixels wide and 100 pixels tall. */
         .circle {
             width: 100px;
             height: 100px;
@@ -77,6 +83,7 @@
     <div id='map'>
         <img src="images/world2.png" alt="world map">
     </div>
+    <!-- paragraph element with author element to create hyperlink to 'Lorem ipsum' Wikipedia page. -->
     <p>paragraph with link: <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.</p>
     <ul>
         <li><a href="http://leafletjs.com/">Leaflet</a></li>
@@ -84,14 +91,33 @@
         <li><a href="https://cartodb.com/">CartoDB</a></li>
         <li><a href="http://d3js.org/">Data-Driven Documents</a></li>
     </ul>
+    <!-- creates a division element that calls the unique identified "box." -->
     <div id="box"></div>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
 
     <script>
-        document.querySelector('h1').innerHTML = 'web mapping is sweet!';  
+        document.querySelector('h1').innerHTML = 'web mapping is sweet!';
         
+        var box = document.getElementById('box');
+        box.style.background = '#4d4a9f'
+        
+        
+        var elements = document.getElementsByClassName('circle');
+        for(var i=0; i <= elements.length-1;i++){
+            elements[i].style['border-radius'] = '20%';
+        }
+        /* creates an 'event listener' that increases the width of the box element on mouse click by user. */
+        box.addEventListener('click', function() {
+         this.style.width = '400px';   
+        }); 
+        
+        var newListItem = document.createElement('li');
+        newListItem.innerHTML = "list item 4";
+        document.querySelector('ul').appendChild(newListItem);
+            
+        console.log("hello map");
     </script>
     
 </body>
