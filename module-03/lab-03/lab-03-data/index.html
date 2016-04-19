@@ -83,11 +83,27 @@
         map.addLayer(tiles);
         
         // BEGIN WRITING CODE FOR LAB 03 HERE
+        //city1 (Lexington) marker information:
         var city1Name = 'Lexington',
             city1Lat = 38.0297, 
             city1Lon = -84.4947,
             city1Pop = 308428,
             city1Capital = false;
+        
+        //city2 (Frankfort) marker information:
+        var city2Name = "Frankfort",
+            city2Lat = 38.2009,
+            city2Lon = -84.8733,
+            city2Pop = 27453,
+            city2Capital = true;
+        
+        //city3 (Louisville) marker information:
+        var city3Name = "Louisville",
+            city3Lat = 38.2500,
+            city3Lon = -85.7667,
+            city3Pop = 597337,
+            city3Capital = false;
+            
        
         // END WRITING CODE FOR LAB 03 HERE
         
@@ -102,27 +118,27 @@
         L.marker([city1Lat,city1Lon]).addTo(map)
             .bindPopup(city1Popup);
         
-//         CITY2 MARKER CODE HERE
-//        var city2Popup = "<b>"+city2Name+"</b><br>"
-//                        +"<b>population</b>: "+city2Pop;
-//        
-//        if(city2Capital == true) {
-//            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city2Lat,city2Lon]).addTo(map)
-//            .bindPopup(city2Popup);
-//        
-//         CITY3 MARKER CODE HERE
-//        var city3Popup = "<b>"+city3Name+"</b><br>"
-//                        +"<b>population</b>: "+city3Pop;
-//        
-//        if(city3Capital == true) {
-//            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city3Lat,city3Lon]).addTo(map)
-//            .bindPopup(city3Popup);
+         //CITY2 MARKER CODE HERE
+        var city2Popup = "<b>"+city2Name+"</b><br>"
+                        +"<b>population</b>: "+city2Pop;
+        
+        if(city2Capital == true) {
+            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city2Lat,city2Lon]).addTo(map)
+            .bindPopup(city2Popup);
+        
+         //CITY3 MARKER CODE HERE
+        var city3Popup = "<b>"+city3Name+"</b><br>"
+                        +"<b>population</b>: "+city3Pop;
+        
+        if(city3Capital == true) {
+            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city3Lat,city3Lon]).addTo(map)
+            .bindPopup(city3Popup);
           
     </script>
     
