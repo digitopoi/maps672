@@ -7,6 +7,6 @@ Modules for the New Maps Plus course - Spring 2016
 
 2. Learn Leaflet and begin making some competent maps.
 
-3. Learn git and github 
+3. Learn Git and GitHub 
 
 4. Develop a portfolio of projects to showcase skills. 
