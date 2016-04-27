@@ -51,14 +51,14 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Три города в России</h1>
+        <h2>(Three cities in Russia)</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
+        <p>Map authored by Hugh Bowman</p>
         <p>Additional information about the data and map goes here.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
         </p>
@@ -81,41 +81,39 @@
         // begin writing/editing Lab 04 code here
         
         //create variable storing three cities to map:
-        var cities = ["St. Petersburg", "Moscow", "Yekaterinburg"];
+        var cities = ["ST. PETERSBURG", "YEKATERINBURG", "MOSCOW"];
         
         //create variable storing the coordinates of the three cities:
         var cityCoords = [
             [59.9343, 30.3351],
-            [55.7558, 37.6173],
-            [56.8389, 60.6057]
+            [56.8389, 60.6057],
+            [55.7558, 37.6173]
         ];
         
         //create variable storing the population of the cities:
         var cityPops = [
-            [4991000],
-            [1192000],
-            [1387000]
+            4991000,
+            1387000,
+            1192000
         ];
         
         //create a variable to designate capital city
         var cityCapital = [
-            [false],
-            [true],
-            [false]
+            false,
+            false,
+            true
+        ];
         
-        for(/* add code here */) {
+        //create a for loop to iterate through cities to create popup label
+        for(var i = 0; i < cities.length; i++) {
             
-            var popup = "<b>"+/* add code here */+"</b><br>"
-                            +"<b>population</b>: "+/* add code here */;
-
-            if(/* add code here */) {
-               
-                popup += "<br>Is the capital city."; 
-                
-            } 
+            var popup = "<b>" + cities[i] + "</b> <br>" + "<b>Population:</b> " + cityPops[i];
             
-            L.marker(/* add code here */).addTo(map)
-                .bindPopup(popup);
+            if(cityCapital[i] == true) {
+               popup += "<br>Capital of Russia."; 
+            }
+            
+            L.marker(cityCoords[i]).addTo(map).bindPopup(popup);
         }
         
         // end writing/editing Lab 04 code here
