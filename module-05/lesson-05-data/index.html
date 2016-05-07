@@ -12,13 +12,26 @@
 
 <script>
 /*JavaScript code goes here! */
-function helloMap() {
+/*function helloMap() {
     console.log("Hello Map");
 }
 helloMap();
 helloMap();
-helloMap();
+helloMap();*/
     
+/*var helloMap = function() {
+    console.log("Hello Map");
+};
+helloMap();*/
+
+function outerFunction(message) {
+    console.log(message);
+    var innerFunction = function(message) {
+        console.log(message);
+    };
+    innerFunction("I'm inside!");
+}
+outerFunction("I'm outside!");
 
 </script>
     
