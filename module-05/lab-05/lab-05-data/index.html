@@ -90,7 +90,8 @@
     // adds these tiles to the map
     map.addLayer(tiles);
     
-    var cities = ["St. Petersburg", "Yekaterinburg", "Moscow"];
+    var cities = ["ST. PETERSBURG", "YEKATERINBURG", "MOSCOW"];
+    
     var cityCoords = [
         [59.9343, 30.3351],
         [56.8389, 60.6057],
@@ -120,28 +121,26 @@
     
     
     // write a function here named mapCities so that it accepts units as a parameter
-    function mapCities(units) {
-        var units = prompt("What units would you like to use for calculating density?", "enter 'miles' or 'km'");
+     function mapCities(units) {
         for(var i = 0; i < cities.length; i++) {
-            var density = calcPopDensity(cityPops[i])
-        }
-        
-        
-    }
+            var density = calcPopDensity(cityPops[i], cityAreas[i], units);
+            var popup = "<b>" + cities[i] + "</b><br>" + "<b>Density</b>: "+density;
+                L.marker(cityCoords[i]).addTo(map).bindPopup(popup);
+            }
+        }    
     
     // write a function named calcPopDensity here so that it accepts a single city's
     // population, area, and the value for units determined by the user
-    function calcPopDensity(cityPops, cityAreas, units) {
-        if (units == "miles") {
-            var density = cityPops / cityAreas;
+     function calcPopDensity(cityPops, cityAreas, units) {
+            if (units == "miles") {
+               density = cityPops / cityAreas;    
+       } else if (units == "km") {
+               density = cityPops / (cityAreas * 2.58999);
+       }else {
+           alert("Please enter 'miles' or 'km'!");
+       }
             return density;
-        } else if (units == "km") {
-            var density = cityPops / (cityAreas * 2.59)
-        } else {
-            alert("Please enter 'miles' or 'km'! Thanks!")
-        }
-        return density   
-    }
+       }
     
     
     
