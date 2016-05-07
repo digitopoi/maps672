@@ -73,8 +73,8 @@
     
     // map options
     var options = {
-        center: [20,-20],
-        zoom: 2
+        center: [57.147179, 47.452814],
+        zoom: 5
     }
     
     // creates the Leaflet map
@@ -92,38 +92,56 @@
     
     var cities = ["St. Petersburg", "Yekaterinburg", "Moscow"];
     var cityCoords = [
-            [59.9343, 30.3351],
-            [56.8389, 60.6057],
-            [55.7558, 37.6173]
-        ];
+        [59.9343, 30.3351],
+        [56.8389, 60.6057],
+        [55.7558, 37.6173]
+    ];
     
-    var cityPops = var cityPops = [
-            4991000,
-            1387000,
-            1192000
-        ];
+    var cityPops = [
+        4991000,
+        1387000,
+        1192000
+    ];
     
-    var cityAreas = []
+    var cityAreas = [
+        556,
+        189.6,
+        970  
+    ]
         
     var button = document.getElementById("map-cities");
     
     button.addEventListener("click", function() {
          
-        var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
-        
-        console.log(units);
-        
+        var units = prompt("Enter the units for calculating density", "Enter 'miles' or 'km'");
         // call a function named mapCities, and send the units variable as an argument
-        
+        mapCities(units);
     }); // addEventListener callback function ends here
     
     
     // write a function here named mapCities so that it accepts units as a parameter
-    
+    function mapCities(units) {
+        var units = prompt("What units would you like to use for calculating density?", "enter 'miles' or 'km'");
+        for(var i = 0; i < cities.length; i++) {
+            var density = calcPopDensity(cityPops[i])
+        }
+        
+        
+    }
     
     // write a function named calcPopDensity here so that it accepts a single city's
     // population, area, and the value for units determined by the user
-
+    function calcPopDensity(cityPops, cityAreas, units) {
+        if (units == "miles") {
+            var density = cityPops / cityAreas;
+            return density;
+        } else if (units == "km") {
+            var density = cityPops / (cityAreas * 2.59)
+        } else {
+            alert("Please enter 'miles' or 'km'! Thanks!")
+        }
+        return density   
+    }
     
     
     
