@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 05 Starter Template</title>
+    <title>Population Density of Three Cities in Russia</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -112,8 +112,11 @@
     var button = document.getElementById("map-cities");
     
     button.addEventListener("click", function() {
-         
-        var units = prompt("Enter the units for calculating density", "Enter 'miles' or 'km'");
+        
+        do {
+            var units = prompt("Enter the units for calculating density", "Enter 'miles' or 'km'");
+        } while (units != 'miles' && units != 'km')
+
         // call a function named mapCities, and send the units variable as an argument
         mapCities(units);
     }); // addEventListener callback function ends here
@@ -131,15 +134,13 @@
     // write a function named calcPopDensity here so that it accepts a single city's
     // population, area, and the value for units determined by the user
      function calcPopDensity(cityPops, cityAreas, units) {
-            if (units == "miles") {
+        if (units == "miles") {
                density = cityPops / cityAreas;    
-       } else if (units == "km") {
+        } else if (units == "km") {
                density = cityPops / (cityAreas * 2.58999);
-       }else {
-           alert("Please enter 'miles' or 'km'!");
-       }
+        }
             return density;
-       }
+     }
     
     
     
