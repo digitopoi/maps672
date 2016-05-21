@@ -14,14 +14,35 @@
 /* JavaScript code goes here! */
 
 /*var iguana = { 
-    name: "Jack",   // a string value
-    weight: 4.2,    // a numeric value, assume kilograms
-    age: 8,         // a numeric value
-    eyes: "dreamy", // a string value
-    questForWorldDomination: true  // a boolean value
+    name: "Jack", 
+    weight: 4.2,   
+    age: 8,        
+    eyes: "dreamy", 
+    questForWorldDomination: true  
 }
 console.log(iguana);*/
 
+/*var iguana = { 
+    questForWorldDomination: true,  
+    age: 8, 
+    eyes: "dreamy",
+    name: "Jack", 
+    weight: 4.2,
+    toolkit: {
+        conquestFlag: "red",
+        surrenderFlag: "white",
+        food: true,
+        music: "Anthrax",
+        coolSunGlasses: 8
+    }
+}
+console.log(iguana);*/
+
+/*
+console.log(iguana.name);
+console.log(iguana.weight); 
+*/
+    
 var iguana = { 
     questForWorldDomination: true,  
     age: 8, 
@@ -36,8 +57,9 @@ var iguana = {
         coolSunGlasses: 8
     }
 }
-console.log(iguana);
-
+console.log(iguana["toolkit"]["music"]); 
+console.log(iguana["toolkit"].coolSunGlasses); 
+    
 </script>
     
 </body>
