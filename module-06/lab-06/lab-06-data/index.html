@@ -47,7 +47,12 @@
         .kentucky-blue {
             color: #165bb6;
         }
-        
+        .indy-red {
+			color: red
+		}
+        .ohio-green {
+			color: lawngreen
+		}
     </style>
 </head>
 
@@ -120,12 +125,12 @@
         function buildPopup(name, pop, state){
 			
 			if(state == "OH"){
-				var colorClass = "ohio-red";	
+				var colorClass = "ohio-green";	
 			}else if(state == "KY"){
 				var colorClass = "kentucky-blue";
 			}
 			else {
-				var colorClass= "indy-green";
+				var colorClass= "indy-red";
 			}
 			return "<div class='"+colorClass+"'><b>"+name+"</b><br>"+
     "<b>Population</b>: "+pop.toLocaleString()+"<div>";
