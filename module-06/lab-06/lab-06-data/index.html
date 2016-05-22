@@ -86,7 +86,7 @@
 				name: "Louisville",
 				properties: {
 					coordinates: [38.25, -85.7667],
-					population: 756832,
+					population: 253128,
 					state: "KY"
 				}
              },
@@ -94,7 +94,7 @@
 				name: "Cincinnati",
 				properties: {
 					coordinates: [39.1, -84.5167],
-					population: 4000000,
+					population: 297517,
 					state: "OH"
 				}
              },
@@ -102,7 +102,7 @@
 				name: "Indianapolis",
 				properties: {
 					coordinates: [39.7910, -86.148],
-					population: 500000,
+					population: 852866,
 					state: "IN"
 				}
              }
@@ -117,7 +117,19 @@
 				.bindPopup(popup);
 		} 
         
-        
+        function buildPopup(name, pop, state){
+			
+			if(state == "OH"){
+				var colorClass = "ohio-red";	
+			}else if(state == "KY"){
+				var colorClass = "kentucky-blue";
+			}
+			else {
+				var colorClass= "indy-green";
+			}
+			return "<div class='"+colorClass+"'><b>"+name+"</b><br>"+
+    "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+		}
         
           
     </script>
