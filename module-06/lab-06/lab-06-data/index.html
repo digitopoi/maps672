@@ -106,8 +106,18 @@
 					state: "IN"
 				}
              }
-        ];    
-            
+        ];
+        
+        console.log(cities);
+        
+        for ( i = 0; i < cities.length; i++) {
+			var props = cities[i].properties;
+			var popup = buildPopup(cities[i].name, props.population, props.state);
+			L.marker(props.coordinates).addTo(map)
+				.bindPopup(popup);
+		} 
+        
+        
         
           
     </script>
