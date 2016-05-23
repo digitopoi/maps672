@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 04 Starter Template</title>
+    <title>Три города в России</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -80,7 +80,7 @@
         // begin writing/editing Lab 04 code here
         
         //create variable storing three cities to map:
-        var cities = ["ST. PETERSBURG", "YEKATERINBURG", "MOSCOW"];
+        var cities = ["St. Petersburg", "Yekateringburg", "Moscow"];
         
         //create variable storing the coordinates of the three cities:
         var cityCoords = [
@@ -106,7 +106,7 @@
         //create a for loop to iterate through cities to create popup label
         for(var i = 0; i < cities.length; i++) {
             
-            var popup = "<b>" + cities[i] + "</b> <br>" + "<b>Population:</b> " + cityPops[i];
+            var popup = "<b>" + cities[i].toUpperCase() + "</b> <br>" + "<b>Population:</b> " + cityPops[i].toLocaleString();
             
             if(cityCapital[i] == true) {
                popup += "<br>Capital of Russia."; 
