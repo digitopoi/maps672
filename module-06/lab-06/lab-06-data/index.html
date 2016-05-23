@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 06 Starter Template</title>
+    <title>Three Midwestern Cities</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -120,7 +120,7 @@
         
         console.log(cities);
         
-        for ( i = 0; i < cities.length; i++) {
+        for ( var i = 0; i < cities.length; i++) {
 			var props = cities[i].properties;
 			var popup = buildPopup(cities[i].name, props.population, props.state);
 			L.marker(props.coordinates).addTo(map)
