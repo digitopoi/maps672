@@ -76,6 +76,12 @@
         });
         
         map.addLayer(tiles);
+
+        var mapCenter = L.latLng(38.0489, -96.5025);
+        var otherCity = L.latLng(38.1489, -96.5125);
+        var distance = mapCenter.distanceTo(otherCity);
+        console.log(distance);
+        
     </script>
     
 </body>
