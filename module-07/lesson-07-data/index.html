@@ -86,40 +86,63 @@
         
         map.addLayer(tiles);
         
+        // create a group of layers called iguanaRestaurants
         var iguanaRestaurants = L.layerGroup();
+        // creates a type within the group of red restaurants
         var redIguanaOptions = {
+            // sets the color property for the border of the variable to be red
             color: 'red',
+            // sets the fill color for the property to be red
             fillColor: 'red'
         };
+        // creates a second type within the group for blue restaurants
         var blueIguanaOptions = {
+            // sets color outline for blue restaurants to be blue
             color: '#03f',
+            // sets the fill for the blue restaurants to be blue
             fillColor: '#03f'
         };
+        // creates the vector for each layer group -- center coordinates, radius, properties
         var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
+        // sets the color of the red target layer
         redIguana.color = 'red';
+        // adds the redIguana property group to the layer group
         redIguana.addTo(iguanaRestaurants);
+        // defines properties for a new group -- center coordnates, radius, properties
         var blueIguana = L.circle([40.7657, -111.8930], 300, blueIguanaOptions);
+        // sets the color of the blue target layer as blue
         blueIguana.color = 'blue';
+        // adds the properties of blueIguana to the layer group
         blueIguana.addTo(iguanaRestaurants);
+        // adds the two layers to the map
         iguanaRestaurants.addTo(map);
 
+        // for all layer groups, when the user moves their mouse over either circle, the properties of the circle will change to yello
         iguanaRestaurants.eachLayer(function(layer) {
+            // sets mouseover function
             layer.on('mouseover', function(e) {
+                // determines what mouseover does
                 e.target.setStyle({
+                    // outline color becomes yellow
                     color: 'yellow',
+                    // fill color become yellow
                     fillColor: 'yellow'
                 });
             });
+            // when the mouse moves out of the cirlce, the color changes back to original color properties
             layer.on('mouseout', function(e) {
+                // if the target color is red... then...
                 if(e.target.color == 'red') {
+                    // set the style to the original color
                     e.target.setStyle(redIguanaOptions);
+                    // if the color of the circle is blue.... then... 
                 } else if (e.target.color == 'blue') {
+                    // set the color back to blue
                     e.target.setStyle(blueIguanaOptions);      
                 }
             });
         });
         
-iguanaRestaurants.addTo(map);
         /*var iguanaRestaurants = L.layerGroup();
         var redIguanaOptions - {
             color: 'red',
