@@ -76,32 +76,35 @@
         });
         
         var options = {
-            center: [38.0489, -96.5025],
-            zoom: 4,
-            minZoom: 4,
-            maxZoom: 7,
-            dragging: false,
-            zoomControl: false
+            center: [40.7608, -111.8910],
+            zoom: 13,
+            minZoom: 11,
+            maxZoom: 14,
         }
         
         var map = L.map('map', options);
         
         map.addLayer(tiles);
         
-        map.on('click', function(e) {
+       /* map.on('click', function(e) {
             console.log(e.latlng);
         });
         
-        L.marker([38.0297, -84.4947]).addTo(map);
+        L.marker([38.0297, -84.4947]).addTo(map);*/
         
-        var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        var iguanaRestaurants = L.layerGroup();
+        var redIguana = L.circle([40.7718,-111.9124], 400);
+        redIguana.addTo(iguanaRestaurants);
+        var blueIguana = L.circle([40.7657, -111.8930], 300);
+        blueIguana.addTo(iguanaRestaurants);
+        iguanaRestaurants.addTo(map);
+        
+        /* var redIguanaLocation = L.latLng(40.7718, -111.9124);
         var redIguanaCircle = L.circle(redIguanaLocation, 400, {
             color: "#d72b1e",
             fillColor: "#d72b1e"
         });
-        redIguanaCircle.addTo(map);
-        
-        
+        redIguanaCircle.addTo(map); */
         
         /*var redIguanaLocation = L.latLng(40.7718, -111.9124);
         var redIguanaMarker = L.marker(redIguanaLocation);
