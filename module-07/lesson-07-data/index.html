@@ -91,6 +91,13 @@
         map.on('click', function(e) {
             console.log(e.latlng);
         });
+        
+        var center = map.getCenter();
+        console.log(center);
+        var zoom = map.getZoom();
+        console.log(zoom);
+        var bounds = map.getBounds();
+        console.log(bounds);
 
         /*var mapCenter = L.latLng(38.0489, -96.5025);
         var otherCity = L.latLng(38.1489, -96.5125);
