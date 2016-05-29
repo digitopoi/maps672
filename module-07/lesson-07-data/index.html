@@ -95,11 +95,9 @@
         L.marker([38.0297, -84.4947]).addTo(map);
         
         var redIguanaLocation = L.latLng(40.7718, -111.9124);
-        var redIguanaMarker = L.marker(redIguanaLocation, {
-            draggable: true,
-            opacity: .4
-        });
+        var redIguanaMarker = L.marker(redIguanaLocation);
         redIguanaMarker.addTo(map);
+        redIguanaMarker.bindPopup("Best Mexican food in Salt Lake City!");
         
         /*var center = map.getCenter();
         console.log(center);
