@@ -79,6 +79,7 @@
 	   subdomains: 'abcd',
 	   maxZoom: 19
     });
+    map.addLayer(tiles);
                 
     var redIguana = L.latLng(40.7718,-111.9124);
         
@@ -90,6 +91,12 @@
     }).addTo(map);
         
     map.on('click', function(e){
+        var clickLocation = new L.marker(e.latlng, {
+            draggable: true,
+            opacity: 0.8});
+        var distance = redIguana.distanceTo(e.lat.lng);
+            clickLocation.addTo(map).bindPopup("<b>" + distance.toFixed(2) + "km from Red Iguana").openPopup();
+        });
         
         // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
         console.log(e.latlng); 
