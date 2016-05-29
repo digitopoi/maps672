@@ -95,8 +95,13 @@
         L.marker([38.0297, -84.4947]).addTo(map);
         
         var redIguanaLocation = L.latLng(40.7718, -111.9124);
-        var redIguanaCircle = L.circle(redIguanaLocation, 400);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400, {
+            color: "#d72b1e",
+            fillColor: "#d72b1e"
+        });
         redIguanaCircle.addTo(map);
+        
+        
         
         /*var redIguanaLocation = L.latLng(40.7718, -111.9124);
         var redIguanaMarker = L.marker(redIguanaLocation);
