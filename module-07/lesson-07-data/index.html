@@ -87,6 +87,10 @@
         var map = L.map('map', options);
         
         map.addLayer(tiles);
+        
+        map.on('click', function(e) {
+            console.log(e.latlng);
+        });
 
         /*var mapCenter = L.latLng(38.0489, -96.5025);
         var otherCity = L.latLng(38.1489, -96.5125);
