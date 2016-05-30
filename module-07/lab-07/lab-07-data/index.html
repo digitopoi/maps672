@@ -90,13 +90,20 @@
         })
     }).addTo(map);
         
-    map.on('click', function(e){
-        var clickLocation = new L.marker(e.latlng, {
+    var click = map.on('click', function(e){
+        var clickLocation = L.marker(e.latlng, {
             draggable: true,
-            opacity: 0.8});
-        var distance = redIguana.distanceTo(e.lat.lng);
+            opacity: 0.6});
+        var distance = redIguana.distanceTo(e.latlng) / 1000;
             clickLocation.addTo(map).bindPopup("<b>" + distance.toFixed(2) + "km from Red Iguana").openPopup();
-        });
+        clickLocation.on('dragend', drag);
+        drag();
+        function drag() {
+            var newLocation = clickLocation.getLatLng();
+            var newDistance = L.latLng(40.7718,-111.9124).distanceTo(newLocation) / 1000;
+                clickLocation.addTo(map).bindPopup("<b>" + newDistance.toFixed(2) + "km from the Red Iguana").openPopup();
+        };
+        
         
         // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
         console.log(e.latlng); 
