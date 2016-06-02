@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 07 Starter Template</title>
+    <title>Distance from the Red Iguana</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -44,8 +44,6 @@
             font-size: 1em;
             color: #001323;
         }
-        /* Additional style rules go here! */
-        
 
     </style>
 </head>
@@ -59,10 +57,7 @@
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by Hugh Bowman</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
-        </p>
+        <p>Map authored by <a href="https://github.com/digitopoi/">Hugh Bowman</a></p>
     </footer>
 
     <script>
@@ -91,22 +86,26 @@
     }).addTo(map);
         
     var click = map.on('click', function(e){
+        
+        var distance = redIguana.distanceTo(e.latlng) / 1000;
+        
         var clickLocation = L.marker(e.latlng, {
             draggable: true,
-            opacity: 0.6});
-        var distance = redIguana.distanceTo(e.latlng) / 1000;
-            clickLocation.addTo(map).bindPopup("<b>" + distance.toFixed(2) + "km from Red Iguana").openPopup();
+            opacity: 0.6})
+                .addTo(map)
+                .bindPopup("<b>" + distance.toFixed(2) + "km from Red Iguana").openPopup();
+        
+        
         clickLocation.on('dragend', drag);
-        drag();
+        
         function drag() {
+            
             var newLocation = clickLocation.getLatLng();
+            
             var newDistance = L.latLng(40.7718,-111.9124).distanceTo(newLocation) / 1000;
-                clickLocation.addTo(map).bindPopup("<b>" + newDistance.toFixed(2) + "km from the Red Iguana").openPopup();
-        };
-        
-        
-        // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
-        console.log(e.latlng); 
+            
+            clickLocation.setPopupContent("<b>" + newDistance.toFixed(2) + "km from the Red Iguana").openPopup();
+        }; 
         
     });
                   
