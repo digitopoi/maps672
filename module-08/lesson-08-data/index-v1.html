@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Lesson 08 Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: whitesmoke;
+            font-family: Lato, sans-serif;
+            color: #0D0000;
+        }
+        header {
+            padding: 6px 10%;
+        }
+        h1 {
+            display: inline-block;
+            margin-right: 20px;
+            color: #001323;
+        }
+        h2 {
+            display: inline-block;
+            color: #001323;
+        }
+        #map {
+            width: 80%;
+            height: 540px;
+            margin: 10px auto;
+        }
+        footer {
+            padding: 6px 10%;
+            width: 80%;
+        }
+        p {
+            font-size: 1em;
+            color: #001323;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Map Title</h1>
+        <h2>Map Subtitle</h2>
+    </header>
+
+    <div id='map'></div>
+
+    <footer>
+        <p>Map authored by YOUR NAME</p>
+        <p>Additional information about the data and map goes here.</p>
+    </footer>
+
+    <script>
+
+      // build your Leaflet map here!
+      var places = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "marker-color": "#7e7e7e",
+                    "marker-size": "medium",
+                    "marker-symbol": "",
+                    "name ": "Tallinn",
+                    "size": 159
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.747390747070312,
+                    59.434601499988126
+                ]
+            }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "marker-color": "#7e7e7e",
+                    "marker-size": "medium",
+                    "marker-symbol": "",
+                    "name": "Haapsalu",
+                    "size": 4
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.544044494628903,
+                    58.947086273229345
+        ]
+      }
+    },
+    {
+            "type": "Feature",
+            "properties": {
+                "marker-color": "#7e7e7e",
+                "marker-size": "medium",
+                "marker-symbol": "",
+                "name": "Parnu",
+                "size": 12
+      },
+            "geometry": {
+            "type": "Point",
+            "coordinates": [
+                24.520282745361325,
+                58.3803885462257
+        ]
+      }
+    },
+    {
+            "type": "Feature",
+            "properties": {
+                "marker-color": "#7e7e7e",
+                "marker-size": "medium",
+                "marker-symbol": "",
+                "name": "Tartu",
+                "size": 39
+      },
+            "geometry": {
+            "type": "Point",
+                "coordinates": [
+                    26.722183227539062,
+                    58.37255783540761
+        ]
+      }
+    }
+  ]
+}
+      
+      var map = L.map('map', {
+          center: [58.73, 25.67],
+          zoom: 7
+      });
+        
+      var tiles = L.tileLayer('http://{s}.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	maxZoom: 19
+      });
+        
+    tiles.addTo(map);
+        
+    var placesLeaflet = L.geoJson(places, {
+        pointToLayer : function(feature, latlng) {
+            return L.circle(latlng, feature.properties.size * 100);
+        }
+    }).addTo(map);
+        
+    /*var placesLeaflet = L.geoJson(places, {
+        pointToLayer : function(feature, latlng) {
+            console.log(feature);
+            return L.circle(latlng, 20000);
+        }
+    }).addTo(map);*/
+        
+    console.log(places);
+    console.log(placesLeaflet);
+    </script>
+    
+</body>
+
+</html>
