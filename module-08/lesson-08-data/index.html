@@ -136,6 +136,18 @@
     }
   ]
 }
+      
+      var map = L.map('map', {
+          center: [58.73, 25.67],
+          zoom: 7
+      });
+        
+      var tiles = L.tileLayer('http://{s}.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	maxZoom: 19
+      });
+        
+    tiles.addTo(map);
     </script>
     
 </body>
