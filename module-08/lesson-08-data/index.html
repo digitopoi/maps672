@@ -149,7 +149,15 @@
         
     tiles.addTo(map);
         
-    var placesLeaflet = L.geoJson(places).addTo(map);
+    var placesLeaflet = L.geoJson(places, {
+        pointToLayer : function(feature, latlng) {
+            console.log();
+            return L.circle(latlng, 20000);
+        }
+    }).addTo(map);
+        
+    console.log(places);
+    console.log(placesLeaflet);
     </script>
     
 </body>
