@@ -151,10 +151,16 @@
         
     var placesLeaflet = L.geoJson(places, {
         pointToLayer : function(feature, latlng) {
-            console.log();
-            return L.circle(latlng, 20000);
+            return L.circle(latlng, feature.properties.size * 100);
         }
     }).addTo(map);
+        
+    /*var placesLeaflet = L.geoJson(places, {
+        pointToLayer : function(feature, latlng) {
+            console.log(feature);
+            return L.circle(latlng, 20000);
+        }
+    }).addTo(map);*/
         
     console.log(places);
     console.log(placesLeaflet);
