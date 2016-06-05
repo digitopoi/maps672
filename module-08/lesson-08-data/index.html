@@ -81,7 +81,13 @@
     
     L.geoJson(plants, {
     pointToLayer: function(feature,latlng) {
-            return L.circleMarker(latlng);   
+            return L.circleMarker(latlng, {
+                color: 'orange',
+                weight: 1, 
+                fillColor: 'yellow',
+                fillOpacity: 1,
+                radius: 2
+            });   
     }
     }).addTo(map);
    
