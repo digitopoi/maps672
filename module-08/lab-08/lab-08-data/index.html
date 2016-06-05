@@ -89,7 +89,12 @@
                  fillOpacity: .8,
                  radius: getRadius(feature.properties.capacity_mw)
               });   
-          }, 
+          },
+          filter: function(feature, layer) {
+              if (feature.properties.fuel_source.Hydro){
+                  return feature;
+              }
+          },
           onEachFeature : function(feature,layer) {
               layer.on('mouseover', function() {
                   layer.setStyle({
