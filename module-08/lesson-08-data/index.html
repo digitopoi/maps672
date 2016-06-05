@@ -77,17 +77,22 @@
     maxZoom: 19
       });
         
-    tiles.addTo(map);
+    tiles.addTo(map);   
     
     L.geoJson(plants, {
     pointToLayer: function(feature,latlng) {
             return L.circleMarker(latlng, {
-                color: 'orange',
+                color: 'darkblue',
                 weight: 1, 
-                fillColor: 'yellow',
-                fillOpacity: 1,
+                fillColor: 'sky-blue',
+                fillOpacity: .8,
                 radius: 2
             });   
+    },
+    filter: function(feature, layer) {
+        if(feature.properties.fuel_source.Hydro){
+            return feature;
+        }
     }
     }).addTo(map);
    
