@@ -106,7 +106,8 @@
                       fillColor: 'lightblue'
                   });
               });
-              layer.bindPopup('Lorem Ipsum');
+              var popup = "<b>" + "Name: " + feature.properties.plant_name + "</b>";
+              layer.bindPopup(popup);
           }
       }).addTo(map);
 
