@@ -89,13 +89,26 @@
                  fillOpacity: .8,
                  radius: getRadius(feature.properties.capacity_mw)
               });   
+          }, 
+          onEachFeature : function(feature,layer) {
+              layer.on('mouseover', function() {
+                  layer.setStyle({
+                      fillColor: 'red'
+                  });
+              });
+              layer.on('mouseout', function() {
+                  layer.setStyle({
+                      fillColor: 'yellow'
+                  });
+              });
           }
       }).addTo(map);
 
       function getRadius(area) {
           var radius = Math.sqrt(area / Math.PI);
           return radius * .6;
-      }              
+      } 
+        
     </script>
     
 </body>
