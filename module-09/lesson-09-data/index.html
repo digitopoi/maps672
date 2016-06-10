@@ -104,8 +104,19 @@
         
       map.on('click', function(e) {
           hydroLayer.eachLayer(function(layer) {
-              var distance = e.latlng.distanceTo(layer.getLatLng());
-              console.log(distance);
+              var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
+              
+              if(distance > 500) {
+                  layer.setStyle({
+                      stroke: false,
+                      fill: false
+                  });
+              } else {
+                  layer.setStyle({
+                      stroke: true,
+                      fill: true
+                  });
+              }
           });
       });
         
