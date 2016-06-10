@@ -75,10 +75,17 @@
       });  
       
       tiles.addTo(map);
+        
+      var commonStyles = {
+          weight: 1,
+          stroke: 1,
+          fillOpacity: .8
+      };
+      
       
       var hydroLayer = L.geoJson(plants, {
           pointToLayer: function(feature, latlng) {
-              return L.circleMarker(latlng);
+              return L.circleMarker(latlng, commonStyles);
           },
           filter: function(feature) {
               if(feature.properties.fuel_source.Hydro) {
@@ -89,18 +96,33 @@
               return {
                   color: '#1f78b4',
                   fillColor: '#1f78b4',
-                  weight: 1,
-                  stroke: 1,
-                  fillOpacity: .8,
                   radius: getRadius(feature.properties.fuel_source.Hydro)
               }
           }
       }).addTo(map);
         
-      hydroLayer.setStyle({
+      var windLayer = L.geoJson(plants, {
+          pointToLayer: function(feature, latlng) {
+              return L.circleMarker(latlng, commonStyles);
+          },
+          filter: function(feature) {
+              if (feature.properties.fuel_source["Wind"]) {
+                  return feature;
+              }
+          },
+          style: function(feature) {
+              return {
+                  color: '#a6cee3',
+                  fillColor: '#a6cee3',
+                  radius: getRadius(feature.properties.fuel_source["Wind"])
+              }
+          }
+      }).addTo(map);
+        
+      /*hydroLayer.setStyle({
           color: '#a5c9e2',
           fillColor: '#a5c9e2'
-      });
+      });*/
         
       map.on('click', function(e) {
           hydroLayer.eachLayer(function(layer) {
