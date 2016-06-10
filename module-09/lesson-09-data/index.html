@@ -102,10 +102,17 @@
           fillColor: '#a5c9e2'
       });
         
-      hydroLayer.eachLayer(function(layer) {
+      map.on('click', function(e) {
+          console.log(e.latlng)
+          hydroLayer.eachLayer(function(layer) {
+              console.log(layer.getLatLng());
+          });
+      });
+        
+      /*hydroLayer.eachLayer(function(layer) {
           
           console.log(layer);
-      });
+      });*/
       
       function getRadius(val) {
           var radius = Math.sqrt(val/Math.PI);
