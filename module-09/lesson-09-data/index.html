@@ -119,6 +119,24 @@
           }
       }).addTo(map);
         
+      var solarLayer = L.geoJson(plants, {
+          pointToLayer: function(feature, latlng) {
+              return L.circleMarker(latlng, commonStyles);
+          },
+          filter: function(feature) {
+              if (feature.properties.fuel_source["Solar"]) {
+                  return feature;
+              }
+          },
+          style: function(feature) {
+              return {
+                  color: '#ffff99',
+                  fillColor: '#ffff99',
+                  radius: getRadius(feature.properties.fuel_source["Solar"])
+              }
+          }
+      }).addTo(map);    
+        
       /*hydroLayer.setStyle({
           color: '#a5c9e2',
           fillColor: '#a5c9e2'
