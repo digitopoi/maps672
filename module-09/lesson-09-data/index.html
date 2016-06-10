@@ -76,7 +76,7 @@
       
       tiles.addTo(map);
       
-      L.geoJson(plants, {
+      var hydroLayer = L.geoJson(plants, {
           pointToLayer: function(feature, latlng) {
               return L.circleMarker(latlng);
           },
