@@ -103,9 +103,9 @@
       });
         
       map.on('click', function(e) {
-          console.log(e.latlng)
           hydroLayer.eachLayer(function(layer) {
-              console.log(layer.getLatLng());
+              var distance = e.latlng.distanceTo(layer.getLatLng());
+              console.log(distance);
           });
       });
         
