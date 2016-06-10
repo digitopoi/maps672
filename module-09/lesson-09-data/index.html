@@ -96,6 +96,11 @@
               }
           }
       }).addTo(map);
+        
+      hydroLayer.setStyle({
+          color: '#a5c9e2',
+          fillColor: '#a5c9e2'
+      });
       
       function getRadius(val) {
           var radius = Math.sqrt(val/Math.PI);
